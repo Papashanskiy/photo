@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView
+from .forms import PhotoUploadModelForm
 
 from .models import Post
 
@@ -15,7 +16,6 @@ class HomePageView(ListView):
 
 
 class CreatePostView(CreateView):
+    form_class = PhotoUploadModelForm
     model = Post
     template_name = 'add.html'
-    fields = '__all__'
-    success_url = 'home'
